@@ -106,7 +106,7 @@ return Index;
 void Select (vector<vector<char>>&board)
 {
 if(check(board)) {
-   if(winner==-1) winner=0;
+   if(winner==-1) winner=1;
     flag=false;
     return;
 }
@@ -147,8 +147,8 @@ vector<vector<char>>board(3,vector<char>(3,'#'));
      cout<<"Enter the position of indexes to place"<<endl;
      int i,j;
      cin>>i>>j;
-     if(i>2 || j>2 || i<0 || j<0) cout<<"Program terminated"<<endl;
-     if(board[i][j]!='#') cout<<"Program terminated"<<endl;
+     if(i>2 || j>2 || i<0 || j<0) {cout<<"Program terminated"<<endl; return 0;}
+     if(board[i][j]!='#') {cout<<"Program terminated"<<endl; return 0;}
      board[i][j]='X';
      Select(board);
      if(!flag) break;
